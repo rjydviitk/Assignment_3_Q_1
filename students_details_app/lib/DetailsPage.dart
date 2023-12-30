@@ -126,7 +126,7 @@ class DetailsPage extends StatelessWidget {
                         builder: (context) {
                           return Container(
                             child: AlertDialog(
-                              title: Text('$namefromhome\n, Logged Out'),
+                              title: Text('$namefromhome\nLogged Out'),
                               actions: [
                                 TextButton(
                                     onPressed: () {
