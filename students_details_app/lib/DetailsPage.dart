@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:students_details_app/main.dart';
 
 class DetailsPage extends StatelessWidget {
   var namefromhome;
-  var rollnofromhome = "220869";
-  var emailidfromhome = "ramjiyadav22@iitk.ac.in";
-  var mobilenofromhome = "8384834760";
+  var rollnofromhome;
+  var emailidfromhome;
+  var mobilenofromhome;
 
   DetailsPage(this.namefromhome, this.rollnofromhome, this.emailidfromhome,
       this.mobilenofromhome);
@@ -19,7 +20,7 @@ class DetailsPage extends StatelessWidget {
       body: Center(
         child: Container(
           width: 275,
-          height: 175,
+          height: 200,
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             border: Border.all(
@@ -112,6 +113,40 @@ class DetailsPage extends StatelessWidget {
                       )),
                 ],
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: 100,
+                height: 30,
+                child: ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Container(
+                            child: AlertDialog(
+                              title: Text('$namefromhome\n, Logged Out'),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.popUntil(
+                                          context, (route) => false);
+                                    },
+                                    child: Text('OK')),
+                              ],
+                            ),
+                          );
+                        });
+                  },
+                  child: Text(
+                    'Log Out',
+                    style: TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
